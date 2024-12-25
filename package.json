@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "lint": "eslint .",
+    "build": "npx tsc",
+    "fix": "eslint . --fix",
+    "start": "node builds/main.js",
+    "dev": "npx tsc -w"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.7.2",
+    "eslint": "^9.11.1",
+    "typescript-eslint": "^8.7.0"
+  },
+  "dependencies": {
+    "@fast-csv/parse": "^5.0.0",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.4.5",
+    "firebase-admin": "^13.0.2"
+  }
+}

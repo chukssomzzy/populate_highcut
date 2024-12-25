@@ -1,0 +1,17 @@
+# node modules 
+
+node_modules/ 
+
+
+# build folder 
+
+builds/
+
+
+# exclude env
+
+.env
+
+
+# package lock 
+package-lock.json
