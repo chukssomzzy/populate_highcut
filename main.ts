@@ -19,9 +19,7 @@ const run = async (): Promise<void> => {
 
     const data = await getCSVData(dataFile); 
 
-    for (const line of data) {
-      console.log(line);
-    }
+    console.log(data);
   } catch (error) {
     throw error;
   }
