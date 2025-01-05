@@ -19,10 +19,10 @@ const run = async (): Promise<void> => {
     console.log(`\nProcessing file: ${dataFile}`);
 
     console.log('Initializing Firebase...');
-    // const app = initializeApp({
-    //   credential: applicationDefault()
-    // });
-    // const db = getFirestore();
+    const app = initializeApp({
+      credential: applicationDefault()
+    });
+    const db = getFirestore();
     console.log('✓ Firebase initialized');
 
     console.log('\nReading CSV data...');
@@ -40,20 +40,20 @@ const run = async (): Promise<void> => {
       'vzcg2JzUlie8DNbOaH9S'
     ];
     
-    // console.log('\nCreating Firestore references...');
-    // const docRefs: CollectionReference[] = [];
-    // for (const id of meterIds) {
-    //   const colRef = db.collection(`/Meter/${id}/MeterReadings`);
-    //   docRefs.push(colRef);
-    //   console.log(`✓ Created ref for meter: ${id}`);
-    // }
-    //
-    // // Start upload
-    // console.log('\nStarting Firestore upload...');
-    // console.time('Upload Duration');
-    //
-    // await sendDataToFirestore(data, db.bulkWriter(), docRefs);
-    //
+    console.log('\nCreating Firestore references...');
+    const docRefs: CollectionReference[] = [];
+    for (const id of meterIds) {
+      const colRef = db.collection(`/Meter/${id}/MeterReadings`);
+      docRefs.push(colRef);
+      console.log(`✓ Created ref for meter: ${id}`);
+    }
+
+    // Start upload
+    console.log('\nStarting Firestore upload...');
+    console.time('Upload Duration');
+
+    await sendDataToFirestore(data, db.bulkWriter(), docRefs);
+
     console.timeEnd('Upload Duration');
 
   } catch (error) {
